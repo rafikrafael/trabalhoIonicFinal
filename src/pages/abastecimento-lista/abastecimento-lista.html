@@ -1,0 +1,32 @@
+<!--
+  Generated template for the AbastecimentoListaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>abastecimento-lista</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let abastecimento of abastecimentos | async">
+      <b>Posto:</b> {{abastecimento.Posto}}
+      <br>
+      <b>Data Abastecimento</b> {{abastecimento.dataVencimento}}
+      <br>
+      <b>Listros</b> {{abastecimento.litros}}
+      <br>
+      <b>Valor</b> {{abastecimento.valor}}
+      <br>
+      <button ion-button full round color="danger" (click)="excluirAbastecimento(abastecimento.key)">
+          Excluir Abastecimento</button>
+    </ion-item>
+  </ion-list>
+</ion-content>
