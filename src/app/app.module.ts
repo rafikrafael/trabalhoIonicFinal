@@ -6,6 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from "angularfire2";
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
+import { AdMobFree } from '@ionic-native/admob-free';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AbastecimentoPage } from '../pages/abastecimento/abastecimento';
@@ -45,7 +47,8 @@ const config = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AbastecimentoService
+    AbastecimentoService,
+    AdMobFree
   ]
 })
 export class AppModule {}
