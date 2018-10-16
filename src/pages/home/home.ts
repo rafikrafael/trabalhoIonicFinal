@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, Platform } from 'ionic-angular';
-
+import { NavController } from 'ionic-angular';
 
 import { AbastecimentoPage } from '../abastecimento/abastecimento';
 import { AbastecimentoListaPage } from '../abastecimento-lista/abastecimento-lista';
@@ -15,31 +14,27 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
-    private admobFree: AdMobFree,
-    private platform: Platform) {
-    this.mostarPublicidade();
+    private admobFree: AdMobFree) {
+      this.displayBanner();
   }
 
-  mostarPublicidade() {
+  displayBanner() {
     const bannerConfig: AdMobFreeBannerConfig = {
-      // add your config here
-      // for the sake of this example we will just use the test config
+      // we will just use a test id for this tutorial
+      id: 'ca-app-pub-6068193623417129/8796469887',
       isTesting: false,
-      id: ( this.platform.is('android') ? 'ca-app-pub-6068193623417129/8796469887' : ''),
-      autoShow: true
-      };
+      autoShow: true,
+    };
 
-      this.admobFree.banner.config(bannerConfig);
+  this.admobFree.banner.config(bannerConfig);
 
-      this.admobFree.banner.prepare()
-        .then(() => {
-        console.log(['testea']);
+  this.admobFree.banner.prepare().then((result)=>{
+    console.log(result);
+  },(reason)=>{
+    console.log(reason);
+  });
 
-          // banner Ad is ready
-          // if we set autoShow to false, then we will need to call the show method here
-        })
-        .catch(e => console.log('testeb', e));
-  };
+ }
 
   incluirAbastecimento() {
     this.navCtrl.push(AbastecimentoPage);
